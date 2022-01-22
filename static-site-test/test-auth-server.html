@@ -97,12 +97,11 @@
       // -- STEP 3
       const getEvents = document.getElementById("getEvents");
       const events = document.getElementById("events");
-      const getCalendarEvents = "https://ksbz93vpqg.execute-api.us-east-1.amazonaws.com/dev/api/get-events/{access_token}";
 
       getEvents.onclick = function () {
         const { access_token } = JSON.parse(accessTokenElement.innerText);
-        const eventRequest = getCalendarEvents + "/" + access_token;
-        fetch(eventRequest)
+        const getCalendarEvents = `https://ksbz93vpqg.execute-api.us-east-1.amazonaws.com/dev/api/get-events/${access_token}`;
+        fetch(getCalendarEvents)
           .then(function (response) {
             return response.json();
           })
