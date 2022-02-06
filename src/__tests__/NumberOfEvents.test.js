@@ -9,7 +9,14 @@ describe('<NumberOfEvents /> component', () => {
         NumberOfEventsWrapper = shallow(<NumberOfEvents />)
     });
 
-    test('display the total number of events', () => {
-        // expect(NumberOfEventsWrapper.find('.city')).toHaveLength(1);
+    test('Event number element renders correctly', () => {
+        expect(NumberOfEventsWrapper.find('.event-number-container')).toHaveLength(1);
     });
+
+    test('Event number data renders correctly', () => {
+        const listLength = NumberOfEventsWrapper.prop('listLength');
+        expect(NumberOfEventsWrapper.find('.event-number-input').prop('value')).toBe(listLength);
+    });
+
+
 });
