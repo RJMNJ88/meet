@@ -6,7 +6,7 @@ class Event extends Component {
     collapsed: true
   };
 
-  handleClick= ()  => {
+  handleClick = ()  => {
     this.setState({
         collapsed: !this.state.collapsed
     });
@@ -18,21 +18,26 @@ class Event extends Component {
     const { collapsed } = this.state;
 
     return (
-      <>
-        <div className="event">
-          <div className="event-preview">
-            <h3 className="event-summary">{event.summary}</h3>
-            <p className="event-location">{event.location}</p>
-            <p className="event-start">{event.start.dateTime}</p>
-          </div>
+      <div className="event">
+
+        <h2 className="event-summary">{ event.summary }</h2>
+        <p className="event-location">{ event.location }</p>
+        <p className="event-time">{ event.start.dateTime } ({ event.start.timeZone })</p>
+
+        {!collapsed && (
           <div className="event-details">
-            <p className="event-end">{event.end.dateTime}</p>
-            <p className="event-zone">{event.end.timeZone}</p>
-            <p className="event-descr">{event.description}</p>
-            <p className="event-link">{event.htmlLink}</p>
+            <p className="event-end">{ event.end.dateTime }</p>
+            <p className="event-description">{ event.description }</p>
+            <a className="event-link" href={event.htmlLink} >More Info</a>
           </div>
-        </div>
-      </>
+        )}
+
+        <button className="detials-btn" onClick={this.handleClick}>
+          {collapsed ? "Show Details" : "Hide Details"}
+        </button>
+
+      </div>
+
     )
   }
 }
