@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { ErrorAlert } from './Alert'
+// import { ErrorAlert } from './Alert'
 
 class NumberOfEvents extends Component {
     state = { 
         listLength: 32,
-        errorMessage: ''
+        // errorMessage: ''
     }
     
     handleListInput = (e) => {
@@ -12,12 +12,12 @@ class NumberOfEvents extends Component {
         if(value < 1 || value > 32) {
             this.setState({
                 listLength: '',
-                errorMessage: 'Please enter a number from 1 to 32.'
+                // errorMessage: 'Please enter a number from 1 to 32.'
             })
         } else {
             this.setState({
                 listLength: value,
-                errorMessage: ''
+                // errorMessage: ''
             })
         }
         this.props.update(NumberOfEvents(e.target.value));
@@ -34,7 +34,7 @@ class NumberOfEvents extends Component {
                     value={this.props.listLength}
                     onChange={(e) => this.handleListLength(e)}
                 />
-                <ErrorAlert text={this.state.errorMessage} />
+                {/* <ErrorAlert text={this.state.errorMessage} /> */}
             </div>
         );
     }
