@@ -32,7 +32,7 @@ class Event extends Component {
           </div>
         )}
 
-        <button className="detials-btn" onClick={this.handleClick}>
+        <button className="details-btn" onClick={this.handleClick}>
           {collapsed ? "Show Details" : "Hide Details"}
         </button>
 

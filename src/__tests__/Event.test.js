@@ -87,31 +87,38 @@ const mockEvent = mockData[0];
     //Expanded component functionality
 
     test('Description element renders correctly', () => {
+        EventWrapper.setState({collapsed: false});
         expect(EventWrapper.find('.event-description')).toHaveLength(1);
     });
 
     test('Description data renders correctly', () => {
+        EventWrapper.setState({collapsed: false});
         expect(EventWrapper.find('.event-description').at(0).text()).toBe('Have you wondered how you can ask Google to show you the list of the top ten must-see places in London? And how Google presents you the list? How can you submit the details of an application? Well, JavaScript is doing these. :) \n\nJavascript offers interactivity to a dull, static website. Come, learn JavaScript with us and make those beautiful websites.');
     });
 
     test('Event end element renders correctly', () => {
+        EventWrapper.setState({collapsed: false});
         expect(EventWrapper.find('.event-end')).toHaveLength(1);
     });
 
     test('Event end data renders correctly', () => {
+        EventWrapper.setState({collapsed: false});
         expect(EventWrapper.find('.event-end').at(0).text()).toBe('2020-05-19T17:00:00+02:00');
     });
 
     test('HTML link element renders correctly', () => {
+        EventWrapper.setState({collapsed: false});
         expect(EventWrapper.find('.event-link')).toHaveLength(1);
     });
 
     test('HTML link data renders correctly', () => {
+        EventWrapper.setState({collapsed: false});
         expect(EventWrapper.find('.event-link').at(0).text()).toBe('More Info');
     });
 
     // Details button label
     test('Details button reads, "Show Details" on load', () => {
+        EventWrapper.setState({collapsed: true});
         expect(EventWrapper.find('.details-btn').at(0).text()).toBe('Show Details');
     });
 
