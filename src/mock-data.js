@@ -79,3 +79,5 @@ const mockData = [
         "eventType": "default"
     }
 ]
+
+export { mockData };
