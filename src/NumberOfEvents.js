@@ -32,7 +32,7 @@ class NumberOfEvents extends Component {
                     type='number'
                     className='event-number-input'
                     value={this.props.listLength}
-                    onChange={(e) => this.handleListLength(e)}
+                    onChange={(e) => this.handleListInput(e)}
                 />
                 {/* <ErrorAlert text={this.state.errorMessage} /> */}
             </div>

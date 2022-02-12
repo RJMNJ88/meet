@@ -10,13 +10,14 @@ class App extends Component {
 
   state = {
     events: [],
-    locations: []
+    locations: [],
+    listLength: 32
   }
 
   updateEvents = (location) => {
     getEvents().then((events) => {
       const locationEvents = (location === 'all') ?
-        events :
+        events: events.slice(0, this.state.listLength)
         events.filter((event) => event.location === location);
       this.setState({
         events: locationEvents
@@ -28,7 +29,10 @@ class App extends Component {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
-        this.setState({ events, locations: extractLocations(events) });
+        this.setState({ 
+          events, 
+          locations: extractLocations(events),
+        });
       }
     });
   }
@@ -41,8 +45,8 @@ class App extends Component {
     return (
       <div className="App">
         <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
+        <NumberOfEvents listLength={this.state.listLength}/>
         <EventList events={this.state.events} />
-        <NumberOfEvents />
       </div>
     );
   }
