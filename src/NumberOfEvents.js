@@ -20,7 +20,7 @@ class NumberOfEvents extends Component {
                 // errorMessage: ''
             })
         }
-        this.props.update(NumberOfEvents(e.target.value));
+        // this.props.update(NumberOfEvents(e.target.value));
     };
 
 
@@ -31,7 +31,8 @@ class NumberOfEvents extends Component {
                 <input
                     type='number'
                     className='event-number-input'
-                    value={this.props.listLength}
+                    // value={this.props.listLength}
+                    value={this.state.listLength}
                     onChange={(e) => this.handleListInput(e)}
                 />
                 {/* <ErrorAlert text={this.state.errorMessage} /> */}

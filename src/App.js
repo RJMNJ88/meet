@@ -14,14 +14,18 @@ class App extends Component {
     listLength: 32
   }
 
-  updateEvents = (location) => {
+  updateEvents = (location, eventCount) => {
     getEvents().then((events) => {
-      const locationEvents = (location === 'all') ?
-        events: events.slice(0, this.state.listLength)
-        events.filter((event) => event.location === location);
-      this.setState({
-        events: locationEvents
-      });
+      const locationEvents = 
+        (location === 'all') 
+        ? events
+        : events.filter((event) => event.location === location)
+      if(this.mounted) {
+        this.setState({
+          events: locationEvents.events.slice(0, this.state.listLength),
+          currentLocation: location
+        });
+      }        
     });
   }
 
