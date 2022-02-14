@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 // import { ErrorAlert } from './Alert'
 
 class NumberOfEvents extends Component {
-    state = { 
-        listLength: 32,
-        // errorMessage: ''
-    }
+    // state = { 
+    //     listLength: 32,
+    //     // errorMessage: ''
+    // }
     
     // handleListInput = (e) => {
     //     const value = e.target.value;
