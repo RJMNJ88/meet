@@ -29,6 +29,20 @@ class App extends Component {
     });
   }
 
+  updateNumberOfEvents = e => {
+    const newNumber = e.target.value ? parseInt(e.target.value) : 32;
+    if(newNumber < 1 || newNumber > 32) {
+      return this.setState({
+        listLength: 0
+      });
+    } else {
+      this.setState({
+        listLength: newNumber
+      });
+      this.updateEvents(this.state.currentLocation, this.state.listLength);
+    }
+  }
+
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
@@ -54,7 +68,7 @@ class App extends Component {
         />
         <NumberOfEvents 
           listLength={this.state.listLength}
-          updateEvents={this.updateEvents}
+          updateNumberOfEvents={this.updateNumberOfEvents}
         />
         <EventList 
           events={this.state.events} 

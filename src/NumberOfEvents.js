@@ -7,21 +7,21 @@ class NumberOfEvents extends Component {
         // errorMessage: ''
     }
     
-    handleListInput = (e) => {
-        const value = e.target.value;
-        if(value < 1 || value > 32) {
-            this.setState({
-                listLength: '',
-                // errorMessage: 'Please enter a number from 1 to 32.'
-            })
-        } else {
-            this.setState({
-                listLength: value,
-                // errorMessage: ''
-            })
-        }
-        // this.props.update(NumberOfEvents(e.target.value));
-    };
+    // handleListInput = (e) => {
+    //     const value = e.target.value;
+    //     if(value < 1 || value > 32) {
+    //         this.setState({
+    //             listLength: '',
+    //             // errorMessage: 'Please enter a number from 1 to 32.'
+    //         })
+    //     } else {
+    //         this.setState({
+    //             listLength: value,
+    //             // errorMessage: ''
+    //         })
+    //     }
+    //     // this.props.update(NumberOfEvents(e.target.value));
+    // };
 
 
     render() { 
@@ -33,7 +33,8 @@ class NumberOfEvents extends Component {
                     className='event-number-input'
                     // value={this.props.listLength}
                     value={this.state.listLength}
-                    onChange={(e) => this.handleListInput(e)}
+                    // onChange={(e) => this.handleListInput(e)}
+                    onChange={(e) => this.props.updateNumberOfEvents(e)}
                 />
                 {/* <ErrorAlert text={this.state.errorMessage} /> */}
             </div>
