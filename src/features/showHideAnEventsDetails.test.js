@@ -16,6 +16,7 @@ defineFeature(feature, test => {
 
         given('the user has opened the app', async () => {
             AppWrapper = await mount(<App />);
+            AppWrapper.update();
         });
 
         when('the user views a specific event', () => {

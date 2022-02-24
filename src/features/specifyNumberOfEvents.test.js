@@ -14,12 +14,12 @@ defineFeature(feature, test => {
 
         let AppWrapper;
 
-        given('the user has not searched for a city', () => {
-
+        given('the user has not searched for a city', async () => {
+            AppWrapper = await mount(<App />);
         });
 
         when('the user opens the app', async () => {
-            AppWrapper = await mount(<App />);
+            AppWrapper.update();
         });
 
         then('the user should see an events list limited to 32 events', (arg0) => {
