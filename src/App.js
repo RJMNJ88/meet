@@ -12,7 +12,8 @@ class App extends Component {
     events: [],
     locations: [],
     currentLocation: 'all',
-    listLength: 32
+    listLength: 32,
+    errorText: ''
   }
 
   updateEvents = (location, eventCount) => {
@@ -34,15 +35,34 @@ class App extends Component {
     const newNumber = e.target.value ? parseInt(e.target.value) : 32;
     if(newNumber < 1 || newNumber > 32) {
       return this.setState({
-        listLength: 0
+        listLength: 0,
+        errorText: 'Please enter a number from 1 to 32'
       });
     } else {
       this.setState({
-        listLength: newNumber
+        listLength: newNumber,
+        errorText: ''
       });
       this.updateEvents(this.state.currentLocation, this.state.listLength);
     }
   }
+
+  // handleListInput = (e) => {
+  //   const value = e.target.value;
+  //   if(value < 1 || value > 32) {
+  //       this.setState({
+  //           listLength: '',
+  //           errorText: 'Please enter a number from 1 to 32.'
+  //       })
+  //   } else {
+  //       this.setState({
+  //           listLength: value,
+  //           errorText: ''
+  //       })
+  //   }
+  //   this.props.update(NumberOfEvents(e.target.value));
+  //   // this.updateEvents(this.state.currentLocation, this.state.listLength);
+  // };
 
   componentDidMount() {
     this.mounted = true;
@@ -70,6 +90,8 @@ class App extends Component {
         <NumberOfEvents 
           listLength={this.state.listLength}
           updateNumberOfEvents={this.updateNumberOfEvents}
+          // errorText={this.state.errorText}
+          handleListInput={this.handleListInput}
         />
         <EventList 
           events={this.state.events} 
