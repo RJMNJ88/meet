@@ -90,7 +90,7 @@ class App extends Component {
         <NumberOfEvents 
           listLength={this.state.listLength}
           updateNumberOfEvents={this.updateNumberOfEvents}
-          // errorText={this.state.errorText}
+          errorText={this.state.errorText}
           handleListInput={this.handleListInput}
         />
         <EventList 
