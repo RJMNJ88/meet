@@ -5,6 +5,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { getEvents, extractLocations } from './api';
 import './nprogress.css';
+import { WarningAlert } from './Alert';
 
 class App extends Component {
 
@@ -13,7 +14,8 @@ class App extends Component {
     locations: [],
     currentLocation: 'all',
     listLength: 32,
-    errorText: ''
+    errorText: '',
+    warningMessage: ''
   }
 
   updateEvents = (location, eventCount) => {
@@ -73,6 +75,15 @@ class App extends Component {
           locations: extractLocations(events),
         });
       }
+      if(!navigator.online) {
+        this.setState({
+          warningMessage: 'You are not connected to the internet'
+        })
+      } else {
+        this.setState({
+          warningMessage: ''
+        });
+      }
     });
   }
 
@@ -81,8 +92,12 @@ class App extends Component {
   }
 
   render() {
+    
+    const { warningMessage } = this.state;
+
     return (
       <div className="App">
+        <WarningAlert text={ warningMessage } />
         <CitySearch 
           locations={this.state.locations}  
           updateEvents={this.updateEvents} 
