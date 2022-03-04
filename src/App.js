@@ -9,7 +9,7 @@ import { WarningAlert } from './Alert';
 import {
   ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
-import { EventGenre } from './EventGenre';
+import EventGenre from './EventGenre';
 
 class App extends Component {
 
