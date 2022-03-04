@@ -123,7 +123,7 @@ class App extends Component {
           handleListInput={this.handleListInput}
         />
         <div className='data-vis-wrapper'>
-          <EventGenre events={events} />
+          <EventGenre events={this.state.events} />
           <ResponsiveContainer
             height={400}
           >
