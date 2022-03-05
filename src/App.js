@@ -53,23 +53,6 @@ class App extends Component {
     }
   }
 
-  // handleListInput = (e) => {
-  //   const value = e.target.value;
-  //   if(value < 1 || value > 32) {
-  //       this.setState({
-  //           listLength: '',
-  //           errorText: 'Please enter a number from 1 to 32.'
-  //       })
-  //   } else {
-  //       this.setState({
-  //           listLength: value,
-  //           errorText: ''
-  //       })
-  //   }
-  //   this.props.update(NumberOfEvents(e.target.value));
-  //   // this.updateEvents(this.state.currentLocation, this.state.listLength);
-  // };
-
   componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
