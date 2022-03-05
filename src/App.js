@@ -79,7 +79,7 @@ class App extends Component {
           locations: extractLocations(events),
         });
       }
-      if(!navigator.online) {
+      if(!navigator.onLine) {
         this.setState({
           warningMessage: 'You are not connected to the internet'
         })
